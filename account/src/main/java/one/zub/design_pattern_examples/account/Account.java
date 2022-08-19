@@ -30,9 +30,6 @@ public class Account {
 
     @Override
     public String toString() {
-        return "Account{" +
-                "balance=" + balance +
-                ", limit=" + limit +
-                '}';
+        return "Account{" + "balance=" + balance + ", limit=" + limit + '}';
     }
 }

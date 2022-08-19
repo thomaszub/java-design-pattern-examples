@@ -13,5 +13,4 @@ public record CompositeCommand(List<Command> commands) implements Command {
     public void execute() {
         commands.forEach(Command::execute);
     }
-
 }

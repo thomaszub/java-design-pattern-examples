@@ -13,5 +13,4 @@ public record WithdrawCommand(Account account, double amount) implements Command
         var newBalance = account.getBalance() - amount;
         if (newBalance > account.getLimit()) account.setBalance(newBalance);
     }
-
 }
