@@ -8,15 +8,15 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-public class AccountTest {
+class AccountTest {
 
     @Test
-    public void accountCannotHavePositiveLimit() {
+    void accountCannotHavePositiveLimit() {
         assertThrows(IllegalArgumentException.class, () -> Account.create(1000.0));
     }
 
     @Test
-    public void depositAndWithdrawWithoutReachingLimit() {
+    void depositAndWithdrawWithoutReachingLimit() {
         var account = Account.create(-1000);
         var commands = Arrays.asList(
                 new DepositCommand(account, 2000.0),
@@ -27,7 +27,7 @@ public class AccountTest {
     }
 
     @Test
-    public void depositAndWithdrawWithReachingLimit() {
+    void depositAndWithdrawWithReachingLimit() {
         var account = Account.create(-1000);
         var commands = Arrays.asList(
                 new DepositCommand(account, 2000.0),
@@ -38,7 +38,7 @@ public class AccountTest {
     }
 
     @Test
-    public void compositeCommandsWithoutReachingLimit() {
+    void compositeCommandsWithoutReachingLimit() {
         var account = Account.create(-1000);
         var command = new CompositeCommand(List.of(
                 new DepositCommand(account, 2000.0),
