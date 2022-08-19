@@ -1,14 +1,11 @@
 package one.zub.design_pattern_examples.account;
 
-public class WithdrawCommand implements Command {
+import java.util.Objects;
 
-    private final Account account;
+public record WithdrawCommand(Account account, double amount) implements Command {
 
-    private final double amount;
-
-    public WithdrawCommand(Account account, double amount) {
-        this.account = account;
-        this.amount = amount;
+    public WithdrawCommand {
+        Objects.requireNonNull(account);
     }
 
     @Override
@@ -16,4 +13,5 @@ public class WithdrawCommand implements Command {
         var newBalance = account.getBalance() - amount;
         if (newBalance > account.getLimit()) account.setBalance(newBalance);
     }
+
 }

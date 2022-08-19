@@ -3,6 +3,7 @@ package one.zub.design_pattern_examples.account;
 import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
@@ -39,12 +40,12 @@ public class AccountTest {
     @Test
     public void compositeCommandsWithoutReachingLimit() {
         var account = Account.create(-1000);
-        var command = new CompositeCommand(
+        var command = new CompositeCommand(List.of(
                 new DepositCommand(account, 2000.0),
                 new WithdrawCommand(account, 1000.0),
                 new WithdrawCommand(account, 500.0),
                 new DepositCommand(account, 1000.0)
-        );
+        ));
         command.execute();
         assertEquals(1500.0, account.getBalance());
     }

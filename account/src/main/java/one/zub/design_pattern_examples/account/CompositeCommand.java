@@ -1,15 +1,12 @@
 package one.zub.design_pattern_examples.account;
 
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
+import java.util.Objects;
 
-public class CompositeCommand implements Command {
+public record CompositeCommand(List<Command> commands) implements Command {
 
-    private final List<Command> commands = new ArrayList<>();
-
-    public CompositeCommand(Command... commands) {
-        this.commands.addAll(Arrays.asList(commands));
+    public CompositeCommand {
+        Objects.requireNonNull(commands);
     }
 
     @Override

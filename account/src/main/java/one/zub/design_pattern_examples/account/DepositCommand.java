@@ -1,15 +1,11 @@
 package one.zub.design_pattern_examples.account;
 
-public class DepositCommand implements Command {
+import java.util.Objects;
 
-    private final Account account;
+public record DepositCommand(Account account, double amount) implements Command {
 
-    private final double amount;
-
-    public DepositCommand(Account account, double amount) {
-        super();
-        this.account = account;
-        this.amount = amount;
+    public DepositCommand {
+        Objects.requireNonNull(account);
     }
 
     @Override
