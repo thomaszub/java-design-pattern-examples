@@ -1,4 +1,4 @@
-package one.zub.design_pattern_examples;
+package one.zub.design_pattern_examples.account;
 
 import java.util.ArrayList;
 import java.util.Arrays;

@@ -1,4 +1,4 @@
-package one.zub.design_pattern_examples;
+package one.zub.design_pattern_examples.account;
 
 import org.junit.jupiter.api.Test;
 
@@ -10,7 +10,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 public class AccountTest {
 
     @Test
-    public void accountCannotHavePositiveLimit(){
+    public void accountCannotHavePositiveLimit() {
         assertThrows(IllegalArgumentException.class, () -> Account.create(1000.0));
     }
 
